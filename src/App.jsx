@@ -16,13 +16,16 @@ import AxiosLogin from './Components/AxiosLogin';
 import AxiosPost from './Components/AxiosPost';
 import Login from './Pages/Login';
 import BaseLayout from './layout/BaseLayout';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"))
 
 
   const data = [
-    { path: '/', element:<Home />},
+    { path: '/',  element:<Home /> },
     { path: '/shop', element: <Shop /> },
     { path: '/about', element: <About /> },
     { path: '/contact', element: <Contact /> },
@@ -39,7 +42,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-       
+      <ToastContainer />
         <Routes>
           <Route element={<BaseLayout/>}>
           {data.map((item) => (

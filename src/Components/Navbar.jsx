@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/Meubel House_Logos-05.png';
 import userIcon from '../assets/mdi_account-alert-outline.png';
@@ -6,6 +6,8 @@ import searchIcon from '../assets/akar-icons_search.png';
 import wishlistIcon from '../assets/akar-icons_heart.png';
 import cartIcon from '../assets/ant-design_shopping-cart-outlined.png';
 import { FaRegUser } from "react-icons/fa6";
+import { IoIosLogOut } from "react-icons/io";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,6 +16,10 @@ const Navbar = () => {
         setMenuOpen(!menuOpen);
     };
     const navigate = useNavigate()
+    const handleLogout = ()=>{
+        navigate("/login")
+        toast.success("Logout successfull")
+    }
 
     return (
         <div className='relative'>
@@ -26,14 +32,13 @@ const Navbar = () => {
                     <ul className='flex gap-8 text-base font-medium sm:hidden md:hidden'>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/shop'>Shop</Link></li>
-                        <li><Link to='/productcomparision'>Compare</Link></li>
+                        {/* <li><Link to='/about'>About</Link></li> */}
                         <li><Link to='/contact'>Contact</Link></li>
                     </ul>
                 </div>
-                <div className="icons flex gap-8 sm:hidden md:hidden">
+                <div className="icons flex gap-4 sm:hidden md:hidden">
                     {user?.data?.username?<div className='flex items-center gap-2'><FaRegUser />{user?.data?.username} </div>: <Link to='/login'><img src={userIcon} alt="User Icon" className='w-6' /></Link>}
-                    
-                    {/* <img src={searchIcon} alt="Search Icon" className='w-6' /> */}
+                    <IoIosLogOut onClick={()=>handleLogout()} size={26} className='text-red-600'/>
                     {/* <img src={wishlistIcon} alt="Wishlist Icon" className='w-6' /> */}
                     <Link to='/cart'><img src={cartIcon} alt="Cart Icon" className='w-6' /></Link>
                 </div>
