@@ -32,7 +32,7 @@ const Navbar = () => {
                     <ul className='flex gap-8 text-base font-medium sm:hidden md:hidden'>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/shop'>Shop</Link></li>
-                        {/* <li><Link to='/about'>About</Link></li> */}
+                        <li><Link to='/productcomparision'>Compare</Link></li>
                         <li><Link to='/contact'>Contact</Link></li>
                     </ul>
                 </div>

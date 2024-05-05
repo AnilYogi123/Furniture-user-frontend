@@ -1,4 +1,5 @@
-import React from 'react'
+import product from '../assets/all_product'
+
 
 const ProductItem = ({ handleClick, coverImg, discount, title, description, newPrice, oldPrice }) => {
     return (
@@ -7,8 +8,9 @@ const ProductItem = ({ handleClick, coverImg, discount, title, description, newP
             onClick={handleClick}
         >
             <img
-                src={coverImg}
+                src={coverImg??product}
                 alt="product"
+
                 className='w-full h-60 object-cover cursor-pointer'
             />
             {discount > 0 && (

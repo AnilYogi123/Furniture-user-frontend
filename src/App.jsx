@@ -18,6 +18,7 @@ import Login from './Pages/Login';
 import BaseLayout from './layout/BaseLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Register from './Components/Register';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
            
           </Route>
           <Route path={"/login"} element={<Login/>} />
+          <Route path={"/register"} element={<Register/>} />
         </Routes>
       </BrowserRouter>
     </div>

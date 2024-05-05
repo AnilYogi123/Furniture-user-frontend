@@ -34,5 +34,6 @@ export const useMutate = (
 
 export const useAuthMutation = () => useMutate(["auth"], "api/users/login");
 
-export const useAuthSignupMutation = () =>
-  useMutate(["signup"], "auth/v3/register");
+
+  export const useAuthRegisterMutation = () =>
+  useMutate(["register"], "api/users/register");

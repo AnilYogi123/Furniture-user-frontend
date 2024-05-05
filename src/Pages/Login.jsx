@@ -62,6 +62,7 @@ export default function Login() {
             </div>
             
             <button className="w-full bg-[#222222] text-white py-2 mt-4">Login </button>
+            <p className="text-sm text-end">Dont have account <span className="underline cursor-pointer text-blue-700 font-semibold" onClick={()=>navigate("/register")}>register</span></p>
         </form>
       </div>
     </div>
