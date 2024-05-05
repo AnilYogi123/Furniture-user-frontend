@@ -20,7 +20,7 @@ const options = [
     { id: 2, label: 'Case on Delivery', description: 'Make your payment upon the delivery of the product in your place.' },
 ];
 
-const CheckoutForm = () => {
+const CheckoutForm = ({checkoutData}) => {
     return (
         <div className='px-32 py-10 sm:px-10 md:px-10'>
             <h2 className='text-xl font-medium'>Billing details</h2>
@@ -62,18 +62,18 @@ const CheckoutForm = () => {
                             <div className='flex flex-col gap-4'>
                                 <h4 className='text-lg font-medium'>Product</h4>
                                 <div className='flex items-center gap-2 text-xs'>
-                                    <p className='text-[#9F9F9F]'>Asgaard sofa</p>
+                                    <p className='text-[#9F9F9F]'>{checkoutData?.name}</p>
                                     <p>x</p>
-                                    <p>1</p>
+                                    <p>{checkoutData?.count}</p>
                                 </div>
                                 <p className='text-sm font-medium'>SubTotal</p>
                                 <p className='text-sm font-medium'>Total</p>
                             </div>
                             <div className='flex flex-col gap-4'>
                                 <h4 className='text-lg font-medium'>Subtotal</h4>
-                                <p className='text-sm font-normal'>Rs. 250,000.00</p>
-                                <p className='text-sm font-normal'>Rs. 250,000.00</p>
-                                <p className='text-xl text-[#B88E2F] font-semibold'>Rs. 250,000.00</p>
+                                <p className='text-sm font-normal'>Rs. {(checkoutData?.price * checkoutData?.count)}</p>
+                                <p className='text-sm font-normal'>Rs. {(checkoutData?.price * checkoutData?.count)}</p>
+                                <p className='text-xl text-[#B88E2F] font-semibold'>Rs. {(checkoutData?.price * checkoutData?.count)- (checkoutData?.discount * checkoutData?.count)}</p>
                             </div>
                         </div>
                         <hr />

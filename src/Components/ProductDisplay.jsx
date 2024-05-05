@@ -11,8 +11,8 @@ import twitter from '../assets/share-twitter.png'
 import { toast } from 'react-toastify';
 
 const ProductDisplay = ({productDetails}) => {
-    const [selectedImage, setSelectedImage] = useState(product1)
     const images = [productDetails?.images?.[0]?.url, product2, product3, product4]
+    const [selectedImage, setSelectedImage] = useState(images?.[0])
     const [selectedSize,setSelectedSize] = useState("small")
     const [count, setCount] = useState(1);
     const [cartToggle, setCartToggle] = useState(false);
@@ -60,7 +60,7 @@ const ProductDisplay = ({productDetails}) => {
                         })}
                     </div>
                     <div>
-                        <img src={selectedImage} alt="Image 1" id='displayImage' className='cursor-pointer' />
+                        <img src={selectedImage} alt="Image 1" id='displayImage' className='cursor-pointer w-[340px]' />
                     </div>
                 </div>
                 <div className='w-96 flex flex-col gap-2'>

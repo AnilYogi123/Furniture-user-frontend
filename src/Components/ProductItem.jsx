@@ -18,7 +18,7 @@ const ProductItem = ({ handleClick, coverImg, discount, title, description, newP
             )}
             <div className='p-4'>
                 <h4 className='text-lg font-semibold'>{title}</h4>
-                <p className='text-sm font-normal text-[#898989]'>{description}</p>
+                <p className='text-sm font-normal text-[#898989]'>{description?.slice(0,50)}</p>
                 <div className='flex justify-between items-center mt-2'>
                     <span className='text-sm font-bold text-[#3A3A3A]'>{newPrice}</span>
                     {oldPrice && <span className='text-sm font-normal text-[#B0B0B0] line-through'>{oldPrice}</span>}

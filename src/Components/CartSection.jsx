@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import product1 from '../assets/product1.png';
 import del from '../assets/delete.png';
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const CartSection = () => {
     const existingArrayString = localStorage.getItem("myCart");
@@ -21,6 +22,7 @@ const CartSection = () => {
       localStorage.setItem('myCart', updatedArrayString);
     }
     setHasRemoveCart(!hasRemoveCart)
+    toast.success("Remove from cart")
   }
    useEffect(()=>{
      setAddCartData(existingArray)
@@ -39,7 +41,6 @@ const CartSection = () => {
                 </div>
                 {
                     filterData?.map((item)=>{
-                        console.log("item",item)
                         return <div key={item?.id} onClick={()=>setSelectedCart(item)} className={`grid grid-cols-5 gap-10 px-4 py-4 items-center ${item?._id === selectedCart?._id && "bg-blue-50"}`}>
                         <div className='flex gap-2 items-center sm:flex-col'>
                             <img src={product1} alt="product" className='w-12 h-12' />
@@ -65,9 +66,7 @@ const CartSection = () => {
                     <h5 className='text-xs font-medium'>Total</h5>
                     <p className='text-sm font-medium text-[#B88E2F]'>Rs. {(selectedCart?.price * selectedCart?.count)- (selectedCart?.discount * selectedCart?.count)}</p>
                 </div>
-                <Link to='/checkout'>
-                    <button className='items-center border border-black w-28 h-10 rounded'>Checkout</button>
-                </Link>
+                    <button onClick={()=>navigate("/checkout",{state:selectedCart})} className='items-center border border-black w-28 h-10 rounded'>Checkout</button>
             </div>
         </div>
     )
